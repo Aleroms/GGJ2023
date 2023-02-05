@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
             Debug.Log(audioSourceObjects.Length + " AudioSource objects found");
 
         LoadSFX();
-        PlayMusic("htl");
+        PlayMusic("htl 1");
     }
 
     //Maps sound clips to key strings in a dictionary
@@ -38,6 +38,8 @@ public class SoundManager : MonoBehaviour
     {
         soundDictionary.Add("click", Resources.Load("Sounds/Click") as AudioClip);
         soundDictionary.Add("htl", Resources.Load("Sounds/htl") as AudioClip);
+        soundDictionary.Add("htl 1", Resources.Load("Sounds/htl 1") as AudioClip);
+        soundDictionary.Add("wind", Resources.Load("Sounds/wind") as AudioClip);
         //Debug.Log("Loaded " + soundDictionary.Count + " clips");
     }
 

@@ -11,6 +11,7 @@ public class GamplayUIManager : MonoBehaviour
     public GameObject losePanel;
     public GameObject winPanel;
 
+
     //private TestMeshPro
 
     // Start is called before the first frame update

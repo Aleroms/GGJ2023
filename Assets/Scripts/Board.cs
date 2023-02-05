@@ -13,6 +13,9 @@ public class Board : MonoBehaviour
     [SerializeField] private int row, col;
     private int currX, currZ;
 
+    [Header("Seed Settings")]
+    [SerializeField] private int weeds;
+
     private void Awake()
     {
         InitializeBoard();
@@ -21,19 +24,44 @@ public class Board : MonoBehaviour
     }
     private void InitializeBoard()
     {
+
         board = new GameObject[row,col];
         if(markerPrefab != null)
         {
             if(row > 1 && col > 1)
             {
-                 for(int i=0; i<row; i++)
+                //initializes the board
+                for(int i=0; i<row; i++)
                 {
                     for(int j=0; j<col; j++)
                     {
                         board[i, j] = Instantiate(markerPrefab, new Vector3(i * distance, 0, j * distance), Quaternion.identity);
                         board[i, j].transform.parent = this.transform;
+                        board[i, j].GetComponent<Tile>().current_state = Tile.Slot.Seed;
                     }
                 }
+
+                //randomly sets the weeds in the board
+                int prevx = Random.Range(0, row);
+                int prevy = Random.Range(0, col);
+                int x, y;
+                for(int a=0; a<weeds; a++)
+                {
+                    x = Random.Range(0, row);
+                    y = Random.Range(0, col);
+                    if(prevx != x && prevy != y)
+                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.Weed;
+                    else
+                    {
+                        x = Random.Range(0, row);
+                        y = Random.Range(0, col);
+                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.Weed;
+                    }
+                    prevx = x;
+                    prevy = y;
+                }
+
+
             }
             else
             {

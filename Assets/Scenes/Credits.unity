@@ -647,7 +647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Game Design: WesLin\n\tArt: Bill Chen\n\t\tMusic/SFX: Alejandro Johnson\nProgramming:
+  m_text: "Art: Bill Chen\n\tGame Design: Wesley Lin\n\t\tMusic/SFX: Alejandro Johnson\nProgramming:
     Kaitlyn Deppmeier, Santiago Morales"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac212f2a9cc75a34298f4d2d738290d6, type: 2}

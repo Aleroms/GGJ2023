@@ -11,11 +11,13 @@ public class Board : MonoBehaviour
     [Header("Board Settings")]
     [SerializeField] private float distance;
     [SerializeField] private int row, col;
+    private int currX, currZ;
 
-    private void Start()
+    private void Awake()
     {
         InitializeBoard();
-
+        currX = Random.Range(0, row);
+        currZ = Random.Range(0, col);
     }
     private void InitializeBoard()
     {
@@ -45,15 +47,32 @@ public class Board : MonoBehaviour
     }
     public bool InBounds(float i, float j)
     {
-        //.Log(i + ">= 0 && " + i + "<= " + row + "&& " + j + ">= 0 && " + j + "<= " + col);
-        return i >= 0 && i <= row  && j >= 0 && j <= col;
+        Debug.Log(i + ">= 0 && " + i + "<= " + row + "&& " + j + ">= 0 && " + j + "<= " + col);
+        return i >= 0 && i < row  && j >= 0 && j < col;
     }
     public Vector3 GetRandPosition()
     {
-        return new Vector3(Random.Range(0, row) * distance, 0, Random.Range(0,col) * distance);
+        return board[currX, currZ].transform.position;
     }
-    public float GetDistance()
+    public int GetCurX()
     {
-        return distance;
+        return currX;
     }
+    public void SetCurX(int n)
+    {
+        currX += n;
+    }
+    public int GetCurZ()
+    {
+        return currZ;
+    }
+    public void SetCurZ(int n)
+    {
+        currZ += n;
+    }
+    public Vector3 GetPosition(int x, int z)
+    {
+        return board[x, z].transform.position;
+    }
+    
 }

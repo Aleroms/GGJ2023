@@ -17,22 +17,17 @@ public class Player : MonoBehaviour
         transform.position = board.GetRandPosition();
         currX = board.GetCurX();
         currZ = board.GetCurZ();
-        //Debug.Log(transform.position);
 
-        Debug.Log("current X:" + currX + " current z:" + currZ);
         Movement();
     }
     private void Update()
     {
-         Movement();
-        //float dirX = Input.GetAxisRaw("Horizontal");
-       // Debug.Log(dirX);
+        Movement();
+        Digging();
     }
     private void Movement()
     {
         
-       // float dirX = Input.GetAxisRaw("Horizontal");
-
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -43,7 +38,7 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX - 1, currZ);
                 board.SetCurX(-1);
                 currX = board.GetCurX();
-                Debug.Log("current X:" + currX + " current z:" + currZ);
+                //Debug.Log("current X:" + currX + " current z:" + currZ);
             }
         }else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -54,7 +49,7 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX + 1, currZ);
                 board.SetCurX(1);
                 currX = board.GetCurX();
-                Debug.Log("current X:" + currX + " current z:" + currZ);
+                //Debug.Log("current X:" + currX + " current z:" + currZ);
             }
         } else if(Input.GetKeyDown(KeyCode.W))
         {
@@ -62,11 +57,11 @@ public class Player : MonoBehaviour
 
             if (board.InBounds(currX, currZ + 1))
             {
-                Debug.Log("current X:" + currX + " current z:" + (currZ+1));
+                //Debug.Log("current X:" + currX + " current z:" + (currZ+1));
                 transform.position = board.GetPosition(currX, currZ + 1);
                 board.SetCurZ(1);
                 currZ = board.GetCurZ();
-                Debug.Log("current X:" + currX + " current z:" + currZ);
+                //Debug.Log("current X:" + currX + " current z:" + currZ);
             }
         }
         else if (Input.GetKeyDown(KeyCode.S))
@@ -78,7 +73,7 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX, currZ - 1);
                 board.SetCurZ(-1);
                 currZ = board.GetCurZ();
-                Debug.Log("current X:" + currX + " current z:" + currZ);
+               // Debug.Log("current X:" + currX + " current z:" + currZ);
             }
         }
 
@@ -86,34 +81,23 @@ public class Player : MonoBehaviour
 
 
     }
-
-
-    /*
-     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+    private void Digging()
+    {
+        //checks to see if the player can dig
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            float step = board.GetDistance();
-            Debug.Log(step * dirX);
-            if (board.InBounds(posX + step, posZ))
+            if (GameManager.Instance.canPlayerDig())
             {
-                Debug.Log("in bounds");
-                
-                transform.position = new Vector3(posX + step, 0, posZ);
+                GameManager.Instance.Dig(currX,currZ);
             }
             else
             {
-                Debug.Log("error");
+                Debug.LogError("Lose or win condition");
             }
-            
         }
+        
+    }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            Debug.Log("x:" + posX);
-            Debug.Log("Z:" + posZ);
-            float step = board.GetDistance() * dirZ;
-            transform.position = new Vector3(posX, 0, posZ + step);
-        }
-     
-     */
+
 
 }

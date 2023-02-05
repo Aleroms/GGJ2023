@@ -16,9 +16,25 @@ public class Tile : MonoBehaviour
 
     public void InitModel()
     {
-        Debug.LogWarning("current Init" + current_state);
         TurnOffAll();
-
+        ActivateModel();
+    }
+    private void TurnOffAll()
+    {
+        weed.SetActive(false);
+        sprout.SetActive(false);
+        hiddenSprout.SetActive(false);
+        deadPlant.SetActive(false);
+    }
+    public void UpdateModel(Slot state)
+    {
+        current_state = state;
+        TurnOffAll();
+        ActivateModel();
+        
+    }
+    private void ActivateModel()
+    {
         switch (current_state)
         {
             case Slot.HiddenSeed:
@@ -35,29 +51,6 @@ public class Tile : MonoBehaviour
                 break;
             case Slot.Dead:
                 deadPlant.SetActive(true);
-                break;
-        }
-    }
-    private void TurnOffAll()
-    {
-        weed.SetActive(false);
-        sprout.SetActive(false);
-        hiddenSprout.SetActive(false);
-        deadPlant.SetActive(false);
-    }
-    public void UpdateModel()
-    {
-        switch (current_state)
-        {
-            case Slot.HiddenSeed:
-                break;
-            case Slot.HiddenWeed:
-                break;
-            case Slot.Plant:
-                break;
-            case Slot.Weed:
-                break;
-            case Slot.Dead:
                 break;
         }
     }

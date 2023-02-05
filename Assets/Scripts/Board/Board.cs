@@ -12,9 +12,7 @@ public class Board : MonoBehaviour
     [SerializeField] private float distance;
     [SerializeField] private int row, col;
     private int currX, currZ;
-
-    [Header("Seed Settings")]
-    [SerializeField] private int weeds;
+    private int weeds;
 
     [Header("Art Assets")]
     [SerializeField] private GameObject weed;
@@ -24,6 +22,7 @@ public class Board : MonoBehaviour
 
     private void Awake()
     {
+        weeds = GameManager.Instance.getTotalWeeds();
         InitializeBoard();
         currX = Random.Range(0, row);
         currZ = Random.Range(0, col);
@@ -63,12 +62,12 @@ public class Board : MonoBehaviour
                     x = Random.Range(0, row);
                     y = Random.Range(0, col);
                     if(prevx != x && prevy != y)
-                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.Weed;
+                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.HiddenWeed;
                     else
                     {
                         x = Random.Range(0, row);
                         y = Random.Range(0, col);
-                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.Weed;
+                        board[x, y].GetComponent<Tile>().current_state = Tile.Slot.HiddenWeed;
                     }
                     prevx = x;
                     prevy = y;
@@ -88,7 +87,7 @@ public class Board : MonoBehaviour
     }
     public bool InBounds(float i, float j)
     {
-        Debug.Log(i + ">= 0 && " + i + "<= " + row + "&& " + j + ">= 0 && " + j + "<= " + col);
+        //Debug.Log(i + ">= 0 && " + i + "<= " + row + "&& " + j + ">= 0 && " + j + "<= " + col);
         return i >= 0 && i < row  && j >= 0 && j < col;
     }
     public Vector3 GetRandPosition()
@@ -114,6 +113,23 @@ public class Board : MonoBehaviour
     public Vector3 GetPosition(int x, int z)
     {
         return board[x, z].transform.position;
+    }
+    public void CheckBoardPosition(int x, int z)
+    {
+        Tile curr = board[x, z].GetComponent<Tile>();
+
+        if(curr.current_state == Tile.Slot.HiddenWeed)
+        {
+            //turns tile into weed
+            curr.UpdateModel(Tile.Slot.Weed);
+        } 
+        else if(curr.current_state == Tile.Slot.HiddenSeed)
+        {
+            curr.UpdateModel(Tile.Slot.Plant);
+            //turns into sprout
+            //check orthogonally to see if more weeds are orthogonal
+            //then update current model on floor
+        }
     }
     
 }

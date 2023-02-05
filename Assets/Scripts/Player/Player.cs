@@ -90,10 +90,7 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.Dig(currX,currZ);
             }
-            else
-            {
-                Debug.LogError("Lose or win condition");
-            }
+            
         }
         
     }

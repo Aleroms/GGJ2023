@@ -11,7 +11,11 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    public void ReloadMainScene()
+    {
+        GameManager.Instance.Reload();
+        SceneManager.LoadScene("Main");
+    }
     public void QuitGame()
     {
         Application.Quit();

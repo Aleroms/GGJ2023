@@ -22,10 +22,16 @@ public class Board : MonoBehaviour
 
     private void Awake()
     {
-        weeds = GameManager.Instance.getTotalWeeds();
+        weeds = 2;
         InitializeBoard();
         currX = Random.Range(0, row);
         currZ = Random.Range(0, col);
+
+       
+    }
+    private void Start()
+    {
+        GameManager.Instance.ReloadBoardReference(this);
     }
     private void InitializeBoard()
     {
@@ -122,6 +128,8 @@ public class Board : MonoBehaviour
         {
             //turns tile into weed
             curr.UpdateModel(Tile.Slot.Weed);
+            //update UI to reflect
+            GameManager.Instance.UnhideWeed();
         } 
         else if(curr.current_state == Tile.Slot.HiddenSeed)
         {

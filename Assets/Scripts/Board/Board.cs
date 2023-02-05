@@ -16,6 +16,12 @@ public class Board : MonoBehaviour
     [Header("Seed Settings")]
     [SerializeField] private int weeds;
 
+    [Header("Art Assets")]
+    [SerializeField] private GameObject weed;
+    [SerializeField] private GameObject sprout;
+    [SerializeField] private GameObject hiddenSprout;
+    [SerializeField] private GameObject deadPlant;
+
     private void Awake()
     {
         InitializeBoard();
@@ -35,9 +41,16 @@ public class Board : MonoBehaviour
                 {
                     for(int j=0; j<col; j++)
                     {
-                        board[i, j] = Instantiate(markerPrefab, new Vector3(i * distance, 0, j * distance), Quaternion.identity);
+                        board[i, j] = Instantiate(markerPrefab);
                         board[i, j].transform.parent = this.transform;
-                        board[i, j].GetComponent<Tile>().current_state = Tile.Slot.Seed;
+                        board[i, j].transform.localPosition = new Vector3(i * distance, 0, j * distance);
+                        board[i, j].transform.rotation = Quaternion.identity;
+
+                        
+                        //Setting the plant model
+                        Tile current = board[i, j].GetComponent<Tile>();
+                        current.current_state = Tile.Slot.HiddenSeed;
+                        current.InitModel();
                     }
                 }
 

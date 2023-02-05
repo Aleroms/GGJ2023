@@ -40,6 +40,9 @@ public class SoundManager : MonoBehaviour
         soundDictionary.Add("htl", Resources.Load("Sounds/htl") as AudioClip);
         soundDictionary.Add("htl 1", Resources.Load("Sounds/htl 1") as AudioClip);
         soundDictionary.Add("wind", Resources.Load("Sounds/wind") as AudioClip);
+        soundDictionary.Add("just_pop", Resources.Load("Sounds/just_pop") as AudioClip);
+        soundDictionary.Add("just_dig", Resources.Load("Sounds/just_dig") as AudioClip);
+        soundDictionary.Add("digpop", Resources.Load("Sounds/digpop") as AudioClip);
         //Debug.Log("Loaded " + soundDictionary.Count + " clips");
     }
 

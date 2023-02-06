@@ -355,6 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 053eb854242baf44da667d25d138f0be, type: 3}
+--- !u!1 &833000955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8699689025035146326, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+  m_PrefabInstance: {fileID: 1299543340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &848338407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6094334025202476094, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
@@ -568,9 +573,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532751d58214afb43b3000c1d473b323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  digs: 5
+  digs: 10
   reloadDigs: 0
-  totalWeeds: 2
+  totalWeeds: 3
   reloadTotalWeeds: 0
 --- !u!1001 &1066715777
 PrefabInstance:
@@ -745,93 +750,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 3073188082414301294, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 25400454}
-    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadMainScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Main
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024596302386, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 25400454}
-    - target: {fileID: 6094334024596302386, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024596302386, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024596302386, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Kaitlyn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 25400454}
-    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReloadMainScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Main
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334024995946599, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094334025341136790, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+    - target: {fileID: 4652178881920365615, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6094334025540379829, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 5185365215076591045, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 399.2
       objectReference: {fileID: 0}
-    - target: {fileID: 6094334026004552157, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+    - target: {fileID: 5185365215076591045, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -41.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094334024569448085, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 25400454}
+    - target: {fileID: 6094334024596302386, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 25400454}
+    - target: {fileID: 6094334024943023119, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 25400454}
     - target: {fileID: 6094334026004552157, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 25400454}
+    - target: {fileID: 6484281112491866076, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6094334026004552157, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
+    - target: {fileID: 6574628537530002855, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 454.1709
       objectReference: {fileID: 0}
-    - target: {fileID: 6094334026004552157, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Kaitlyn
+    - target: {fileID: 6574628537530002855, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 54.3398
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574628537530002855, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -531.5145
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574628537530002855, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -38.16989
       objectReference: {fileID: 0}
     - target: {fileID: 7823823558882587752, guid: f1ee3589d9c45be4fb519bc984dadf74, type: 3}
       propertyPath: m_RootOrder
@@ -942,6 +907,10 @@ PrefabInstance:
       propertyPath: numDigsUI
       value: 
       objectReference: {fileID: 28172897}
+    - target: {fileID: 2963726309085331722, guid: 5208b0328c234d142a474e5090dc6183, type: 3}
+      propertyPath: messageDisplay
+      value: 
+      objectReference: {fileID: 833000955}
     - target: {fileID: 2963726309085331722, guid: 5208b0328c234d142a474e5090dc6183, type: 3}
       propertyPath: numHiddenWeedsUI
       value: 

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 
 
         //update UI here
+        
         digs--;
         UIManager.updateNumDigs(digs);
     }
@@ -94,4 +95,9 @@ public class GameManager : MonoBehaviour
         totalWeeds--;
         UIManager.updateNumHiddenWeeds(totalWeeds);
     }
+    public void UIMessage(string msg)
+    {
+        UIManager.UpdateMessageDisplay(msg);
+    }
+
 }

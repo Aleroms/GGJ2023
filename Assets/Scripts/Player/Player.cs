@@ -76,8 +76,8 @@ public class Player : MonoBehaviour
                // Debug.Log("current X:" + currX + " current z:" + currZ);
             }
         }
-
-
+        //remove text here
+        //GameManager.Instance.UIMessage("");
 
 
     }

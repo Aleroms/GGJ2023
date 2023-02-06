@@ -11,6 +11,8 @@ public class GamplayUIManager : MonoBehaviour
     public GameObject losePanel;
     public GameObject winPanel;
 
+    public GameObject messageDisplay;
+
 
     //private TestMeshPro
 
@@ -39,6 +41,18 @@ public class GamplayUIManager : MonoBehaviour
     public void updateNumDigs(int numDigs)
     {
         numDigsUI.GetComponent<TMPro.TextMeshProUGUI>().text = numDigs.ToString();
+    }
+    public void UpdateMessageDisplay(string msg)
+    {
+        messageDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = msg;
+        //StartCoroutine(MessageCoroutine(msg));
+    }
+    private IEnumerator MessageCoroutine(string msg)
+    {
+        messageDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = msg;
+        yield return new WaitForSeconds(2f);
+        messageDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "";
+
     }
 
     public void showLosePanel()

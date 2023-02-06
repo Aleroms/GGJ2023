@@ -8,10 +8,12 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
     private Board board;
     private int currX, currZ;
+    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         board = GameObject.FindGameObjectWithTag("board").GetComponent<Board>();
 
         transform.position = board.GetRandPosition();
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.UIMessage("");
             currX = board.GetCurX();
+            animator.SetTrigger("move");
 
             if (board.InBounds(currX - 1, currZ))
             {
@@ -45,6 +48,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.UIMessage("");
             currX = board.GetCurX();
+            animator.SetTrigger("move");
 
             if (board.InBounds(currX + 1, currZ))
             {
@@ -57,10 +61,10 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.UIMessage("");
             currZ = board.GetCurZ();
+            animator.SetTrigger("move");
 
             if (board.InBounds(currX, currZ + 1))
             {
-              
                 transform.position = board.GetPosition(currX, currZ + 1);
                 board.SetCurZ(1);
                 currZ = board.GetCurZ();
@@ -71,6 +75,7 @@ public class Player : MonoBehaviour
         {
             GameManager.Instance.UIMessage("");
             currZ = board.GetCurZ();
+            animator.SetTrigger("move");
 
             if (board.InBounds(currX, currZ - 1))
             {
@@ -87,7 +92,9 @@ public class Player : MonoBehaviour
         //checks to see if the player can dig
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(SoundManager.SoundInstance != null)
+            animator.SetTrigger("dig");
+
+            if (SoundManager.SoundInstance != null)
                 SoundManager.SoundInstance.PlaySFX("just_dig");
 
 

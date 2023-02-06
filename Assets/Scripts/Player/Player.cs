@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            GameManager.Instance.UIMessage("");
             currX = board.GetCurX();
 
             if (board.InBounds(currX - 1, currZ))
@@ -38,10 +39,11 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX - 1, currZ);
                 board.SetCurX(-1);
                 currX = board.GetCurX();
-                //Debug.Log("current X:" + currX + " current z:" + currZ);
+          
             }
         }else if (Input.GetKeyDown(KeyCode.D))
         {
+            GameManager.Instance.UIMessage("");
             currX = board.GetCurX();
 
             if (board.InBounds(currX + 1, currZ))
@@ -49,23 +51,25 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX + 1, currZ);
                 board.SetCurX(1);
                 currX = board.GetCurX();
-                //Debug.Log("current X:" + currX + " current z:" + currZ);
+             
             }
         } else if(Input.GetKeyDown(KeyCode.W))
         {
+            GameManager.Instance.UIMessage("");
             currZ = board.GetCurZ();
 
             if (board.InBounds(currX, currZ + 1))
             {
-                //Debug.Log("current X:" + currX + " current z:" + (currZ+1));
+              
                 transform.position = board.GetPosition(currX, currZ + 1);
                 board.SetCurZ(1);
                 currZ = board.GetCurZ();
-                //Debug.Log("current X:" + currX + " current z:" + currZ);
+               
             }
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
+            GameManager.Instance.UIMessage("");
             currZ = board.GetCurZ();
 
             if (board.InBounds(currX, currZ - 1))
@@ -73,12 +77,9 @@ public class Player : MonoBehaviour
                 transform.position = board.GetPosition(currX, currZ - 1);
                 board.SetCurZ(-1);
                 currZ = board.GetCurZ();
-               // Debug.Log("current X:" + currX + " current z:" + currZ);
+              
             }
         }
-        //remove text here
-        //GameManager.Instance.UIMessage("");
-
 
     }
     private void Digging()
@@ -86,6 +87,10 @@ public class Player : MonoBehaviour
         //checks to see if the player can dig
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(SoundManager.SoundInstance != null)
+                SoundManager.SoundInstance.PlaySFX("just_dig");
+
+
             if (GameManager.Instance.canPlayerDig())
             {
                 GameManager.Instance.Dig(currX,currZ);

@@ -176,16 +176,23 @@ public class Board : MonoBehaviour
         {
             
             curr.UpdateModel(Tile.Slot.Weed);
-            
+
+            if (SoundManager.SoundInstance != null)
+                SoundManager.SoundInstance.PlaySFX("digpop");
+
             GameManager.Instance.UnhideWeed();
         } 
         else if(curr.current_state == Tile.Slot.HiddenSeed)
         {
             curr.UpdateModel(Tile.Slot.Plant);
 
+            if (SoundManager.SoundInstance != null)
+                SoundManager.SoundInstance.PlaySFX("digpop");
+
+
             int adjacentWeeds = CheckAdjacentWeed();
             GameManager.Instance.UIMessage("There are (is) " + adjacentWeeds + " nearby!");
-            //Debug.Log("THERE ARE (IS) " + totalWeed + " NEARBY");
+            
         }
     }
     
